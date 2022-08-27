@@ -1,36 +1,37 @@
-import data from "./data";
 
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HomeScreen from "./screens/HomeScreen";
+import ProductScreen from './screens/ProductScreen';
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+import { LinkContainer } from 'react-router-bootstrap';
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
+    <div className='d-flex flex-column site-container'>
       <header>
-        <a href="/">AratanoCommerce</a> 
+        <Navbar bg="dark" variant="dark">
+          <Container>
+              <LinkContainer to="/">
+                <Navbar.Brand>AratanoCommerce</Navbar.Brand>
+              </LinkContainer>
+          </Container>
+        </Navbar>
       </header>
       <main>
-       <h1>Productos</h1>
-       
-        <div className="products">
-        {data.products.map(product => (
-        <div className="product" key={product._id}>
-            
-            <img src={product.image} alt={product.name} />
-            
-            <div className="product-info">
-              <p>
-                {product.name}
-              </p>
-              <p>
-                <strong>${product.price}</strong>
-              </p>
-              <button>Add to cart</button>
-            </div>
-        </div>))
-       } 
-       </div>
+      <Container>
+        <Routes>
+            <Route path="/product/:slug" element={<ProductScreen />}/>
+            <Route path="/" element={<HomeScreen />}/>
+        </Routes>
+       </Container>
       </main>
+      <footer>
+        <div className='text-center'>All rights reserved</div>
+      </footer>
     </div>
-
+    </BrowserRouter>
   );
 }
 
