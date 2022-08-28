@@ -8,7 +8,12 @@ body {
 }
 
 main {
-  flex: 1;
+  flex:1;
+}
+
+.btn-primary {
+  background-color: #f0c040;
+  color: black;
 }
 
 .site-container {
@@ -19,6 +24,10 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.rating span {
+  color: #ffc000;
 }
 
 .product {
@@ -37,4 +46,8 @@ main {
 
 .product-info {
   padding: 1rem;
+}
+
+.img-large {
+  max-width: 100%;
 }
