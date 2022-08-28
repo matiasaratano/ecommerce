@@ -7,9 +7,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.site-container {
+  background-color: antiquewhite;
+}
+
 main {
   flex:1;
 }
+
 
 .btn-primary {
   background-color: #f0c040;

@@ -12,10 +12,20 @@ function App() {
     <div className='d-flex flex-column site-container'>
       <header>
         <Navbar bg="dark" variant="dark">
-          <Container>
-              <LinkContainer to="/">
-                <Navbar.Brand>Mi Ecommerce</Navbar.Brand>
-              </LinkContainer>
+          <Container className="justify-content-center">
+            <Navbar.Brand href="#home">
+              <img
+                src="/logo.png"
+                width="50"
+                height="34"
+                className="d-inline-block align-top"
+                alt="React Bootstrap logo"
+              />
+            </Navbar.Brand>
+            <LinkContainer to="/">
+              <Navbar.Brand>Templ.</Navbar.Brand>
+            </LinkContainer>      
+          
           </Container>
         </Navbar>
       </header>

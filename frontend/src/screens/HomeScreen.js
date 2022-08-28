@@ -19,9 +19,9 @@ function HomeScreen (){
   }, []);
     return <div>
         <Helmet>
-        <title>Mi Ecommerce</title>
+        <title>Templ.</title>
       </Helmet>
-       <h1>Featured Products</h1>
+       <h1 style={{fontSize:"1.5rem"}}>Productos Destacados</h1>
         <div className="products">
           <Row>
           {products.map((product) => (
