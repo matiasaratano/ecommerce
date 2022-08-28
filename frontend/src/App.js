@@ -5,8 +5,15 @@ import ProductScreen from './screens/ProductScreen';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import { LinkContainer } from 'react-router-bootstrap';
+import { useContext } from 'react';
+import { Store } from './screens/Store';
+import Badge from 'react-bootstrap/Badge';
+import Nav from 'react-bootstrap/Nav';
+import { Link } from 'react-router-dom';
 
 function App() {
+  const { state } = useContext(Store);
+  const { cart } = state;
   return (
     <BrowserRouter>
     <div className='d-flex flex-column site-container'>
@@ -25,7 +32,16 @@ function App() {
             <LinkContainer to="/">
               <Navbar.Brand>Templ.</Navbar.Brand>
             </LinkContainer>      
-          
+            <Nav className="me-auto">
+                <Link to="/cart" className="nav-link">
+                  Cart
+                  {cart.cartItems.length > 0 && (
+                    <Badge pill bg="danger">
+                      {cart.cartItems.length}
+                    </Badge>
+                  )}
+                </Link>
+              </Nav>
           </Container>
         </Navbar>
       </header>
