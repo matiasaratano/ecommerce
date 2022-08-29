@@ -19,6 +19,9 @@ main {
   margin-right: 0!important;
 }
 
+.img-thumbnail {
+  height: 80px;
+}
 
 .btn-primary {
   background-color: #f0c040;

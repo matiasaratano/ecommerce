@@ -10,6 +10,7 @@ import { Store } from './screens/Store';
 import Badge from 'react-bootstrap/Badge';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
+import CartScreen from './screens/CartScreen';
 
 function App() {
   const { state } = useContext(Store);
@@ -20,7 +21,7 @@ function App() {
       <header>
         <Navbar bg="dark" variant="dark">
           <Container className="justify-content-center">
-            <Navbar.Brand href="#home">
+            <Navbar.Brand href="/">
               <img
                 src="/logo.png"
                 width="50"
@@ -49,6 +50,7 @@ function App() {
       <Container className='mt-3'>
         <Routes>
             <Route path="/product/:slug" element={<ProductScreen />}/>
+            <Route path="/cart" element={<CartScreen />} />
             <Route path="/" element={<HomeScreen />}/>
         </Routes>
        </Container>
