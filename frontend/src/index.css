@@ -12,11 +12,11 @@ body {
 }
 
 main {
-  flex:1;
+  flex: 1;
 }
 
 .navbar-nav {
-  margin-right: 0!important;
+  margin-right: 0 !important;
 }
 
 .img-thumbnail {
@@ -26,6 +26,7 @@ main {
 .btn-primary {
   background-color: #f0c040;
   color: black;
+  border-radius: 5px;
 }
 
 .site-container {
@@ -53,7 +54,6 @@ main {
   max-width: 400px;
   max-height: 500px;
   object-fit: contain;
-  
 }
 
 .product-info {
@@ -62,4 +62,8 @@ main {
 
 .img-large {
   max-width: 100%;
+}
+
+.small-container {
+  max-width: 600px;
 }
