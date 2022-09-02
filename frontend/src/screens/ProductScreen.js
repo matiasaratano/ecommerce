@@ -28,27 +28,27 @@ function ProductScreen() {
   const params = useParams();
   const navigate = useNavigate();
   const { slug } = params;
-  
-    const [{ loading, error, product }, dispatch] = useReducer(reducer, {
-      product: [],
-      loading: true,
-      error: '',
-    });
-    useEffect(() => {
-      const fetchData = async () => {
-        dispatch({ type: 'FETCH_REQUEST' });
-        try {
-          const result = await axios.get(`/api/products/slug/${slug}`);
-          dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
-        } catch (err) {
-          dispatch({ type: 'FETCH_FAIL', payload: err.message });
-        }
-      };
-      fetchData();
-    }, [slug]);
-  
-    const { state, dispatch: ctxDispatch } = useContext(Store);
-    const { cart } = state;
+
+  const [{ loading, error, product }, dispatch] = useReducer(reducer, {
+    product: [],
+    loading: true,
+    error: '',
+  });
+  useEffect(() => {
+    const fetchData = async () => {
+      dispatch({ type: 'FETCH_REQUEST' });
+      try {
+        const result = await axios.get(`/api/products/slug/${slug}`);
+        dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+      } catch (err) {
+        dispatch({ type: 'FETCH_FAIL', payload: err.message });
+      }
+    };
+    fetchData();
+  }, [slug]);
+
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { cart } = state;
   const addToCartHandler = async () => {
     const existItem = cart.cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
@@ -63,13 +63,13 @@ function ProductScreen() {
     });
     navigate('/cart');
   };
-    return loading ? (
-      <div>Loading...</div>
-    ) : error ? (
-      <div>{error}</div>
-    ) : (
-      <div>
-         <Row>
+  return loading ? (
+    <div>Loading...</div>
+  ) : error ? (
+    <div>{error}</div>
+  ) : (
+    <div>
+      <Row>
         <Col md={6}>
           <img
             className="img-large"
@@ -91,7 +91,7 @@ function ProductScreen() {
                 numReviews={product.numReviews}
               ></Rating>
             </ListGroup.Item>
-            <ListGroup.Item>Pirce : ${product.price}</ListGroup.Item>
+            <ListGroup.Item>Price : ${product.price}</ListGroup.Item>
             <ListGroup.Item>
               Descripcion:
               <p>{product.description}</p>
@@ -123,8 +123,8 @@ function ProductScreen() {
 
                 {product.countInStock > 0 && (
                   <ListGroup.Item>
-                    <div className="d-grid" >
-                    <Button onClick={addToCartHandler} variant="primary">
+                    <div className="d-grid">
+                      <Button onClick={addToCartHandler} variant="primary">
                         Add to Cart
                       </Button>
                     </div>
@@ -135,8 +135,6 @@ function ProductScreen() {
           </Card>
         </Col>
       </Row>
-
-
     </div>
   );
 }
